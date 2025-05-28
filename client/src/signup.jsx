@@ -2,17 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
-import 
 function Signup() {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const navigate = useNavigate()
 
-
+    /* import.meta.env This works with vite not process.env. this !! */
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://${process.env.REACT_APP_HOST_IP}:3001/register', {name, email, password})
+        axios.post(`http://${import.meta.env.VITE_HOST_IP}:3001/register`, {name, email, password})
         .then(result => {console.log(result)
         navigate('/login')
         })
