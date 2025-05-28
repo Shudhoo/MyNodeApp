@@ -8,7 +8,10 @@ const app = express()
 app.use(express.json())
 app.use(cros())
 
-mongoose.connect("mongodb://127.0.0.1:27017/employee")
+mongoose.connect("mongodb://mongodb:27017/employee",{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.post('/register', (req, res)=> {
     EmployeeModel.create(req.body)
@@ -32,6 +35,6 @@ app.post('/login', (req, res)=> {
     })
 })
 
-app.listen(3001, () =>{
+app.listen(3001, '0.0.0.0', () =>{
     console.log("Server Is Running");
 })
