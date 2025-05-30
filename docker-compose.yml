@@ -1,0 +1,35 @@
+# This is a docker compose file used to test this application in 
+# development environment !!
+
+services:
+  mongodb:
+    image: mongo:6
+    ports:
+      - 27017:27017
+    networks:
+      - my-net
+    volumes:
+      - mongo-data:/data/db
+  client:
+    build: ./client/ 
+    ports:
+      - 5173:5173
+    environment:
+      HOST_IP_ADDRESS: ${HOST_IP}
+    networks:
+      - my-net
+  server:
+    build: ./server/
+    ports:
+      - 3001:3001
+    networks:
+      - my-net
+    depends_on:
+      - mongodb
+
+volumes:
+  mongo-data:
+
+networks:
+  my-net:
+    driver: bridge
