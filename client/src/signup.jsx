@@ -11,7 +11,7 @@ function Signup() {
     /* import.meta.env This works with vite not process.env. this !! */
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://${import.meta.env.VITE_HOST_IP}:3001/register`, {name, email, password})
+        axios.post('/api/register', {name, email, password})
         .then(result => {console.log(result)
         navigate('/login')
         })
