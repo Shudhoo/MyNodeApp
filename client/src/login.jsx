@@ -10,7 +10,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://${import.meta.env.VITE_HOST_IP}:3001/register`, { email, password})
+        axios.post('/api/register', { email, password})
         .then(result => {
             console.log(result)
             if(result.data === "Success") {
