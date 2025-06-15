@@ -21,7 +21,7 @@ function Signup() {
   return (
     <div className="bg-secondary d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
       <div className="card shadow-sm p-4" style={{ width: "22rem" }}>
-        <h3 className="mb-3">Register</h3>
+        <h3 className="mb-3">Enter You'r Details</h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label fw-bold">Name</label>
