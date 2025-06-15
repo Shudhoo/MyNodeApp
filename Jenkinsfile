@@ -27,7 +27,7 @@ pipeline {
                                 docker build -f Dockerfile -t shudhodhan/nodeapp:client${BUILD_NUMBER} .
                                 trivy image --severity HIGH,CRITICAL shudhodhan/nodeapp:client${BUILD_NUMBER}
                                 docker push shudhodhan/nodeapp:client${BUILD_NUMBER}
-                           """
+                            """
                         }
                         dir('server') {
                             sh """
@@ -37,6 +37,30 @@ pipeline {
                             """
                         }
                     }
+                }
+            }
+        }
+        stage('Update-k8s-Manifest-Repo') {
+            environment {
+                GIT_REPO_NAME = "MyNodeApp"
+                GIT_USER_NAME = "Shudhoo"
+            }
+            steps {
+                withCredentials([string(credentialsId: 'github', variable: 'github')]) {
+                    sh '''
+                        rm -r MyNodeApp
+                        git clone https://${github}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
+                        cd ${GIT_REPO_NAME}
+                        
+                        git config user.email "shudhowani@gmail.com"
+                        git config user.name "Shudhoo"
+                        BUILD_NUMBER=${BUILD_NUMBER}
+                        sed -i "s/ImageTag/${BUILD_NUMBER}/g" 06-client.yml
+                        sed -i "s/ImageTag/${BUILD_NUMBER}/g" 07-server.yml
+                        git add 06-client.yml 07-server.yml
+                        git commit -m "Update deployments image to version ${BUILD_NUMBER}"
+                        git push https://${github}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
+                    '''
                 }
             }
         }
