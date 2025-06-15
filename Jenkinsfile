@@ -55,8 +55,8 @@ pipeline {
                         git config user.email "shudhowani@gmail.com"
                         git config user.name "Shudhoo"
                         BUILD_NUMBER=${BUILD_NUMBER}
-                        sed -i "s/ImageTag/${BUILD_NUMBER}/g" 06-client.yml
-                        sed -i "s/ImageTag/${BUILD_NUMBER}/g" 07-server.yml
+                        sed -i "s|shudhodhan/nodeappclient:[^ ]*|shudhodhan/nodeappclient:${BUILD_NUMBER}|g" 06-client.yml
+                        sed -i "s|shudhodhan/nodeappserver:[^ ]*|shudhodhan/nodeappserver:${BUILD_NUMBER}|g" 07-server.yml
                         git add 06-client.yml 07-server.yml
                         git commit -m "Update deployments image to version ${BUILD_NUMBER}"
                         git push https://${github}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
