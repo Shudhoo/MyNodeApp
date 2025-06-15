@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        stage('Sonar-Qube-Quality-Analysis') {
+        stage('Sonar-Qube-Code-Quality-Analysis') {
             steps {
                 withSonarQubeEnv("SonarQube") {
                     sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=React-Login-Page -Dsonar.projectKey=React-Login-Page"
