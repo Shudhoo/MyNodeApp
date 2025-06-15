@@ -24,16 +24,16 @@ pipeline {
                     withDockerRegistry(credentialsId: 'docker_cred', url: 'https://index.docker.io/v1/') {
                         dir('client') {
                             sh """
-                                docker build -f Dockerfile -t shudhodhan/nodeapp:client${BUILD_NUMBER} .
-                                trivy image --severity HIGH,CRITICAL shudhodhan/nodeapp:client${BUILD_NUMBER}
-                                docker push shudhodhan/nodeapp:client${BUILD_NUMBER}
+                                docker build -f Dockerfile -t shudhodhan/nodeappclient:${BUILD_NUMBER} .
+                                trivy image --severity HIGH,CRITICAL shudhodhan/nodeappclient:${BUILD_NUMBER}
+                                docker push shudhodhan/nodeappclient:${BUILD_NUMBER}
                             """
                         }
                         dir('server') {
                             sh """
-                                docker build -f Dockerfile -t shudhodhan/nodeapp:server${BUILD_NUMBER} .
-                                trivy image --severity HIGH,CRITICAL shudhodhan/nodeapp:server${BUILD_NUMBER}
-                                docker push shudhodhan/nodeapp:server${BUILD_NUMBER}
+                                docker build -f Dockerfile -t shudhodhan/nodeappserver:${BUILD_NUMBER} .
+                                trivy image --severity HIGH,CRITICAL shudhodhan/nodeappserver:${BUILD_NUMBER}
+                                docker push shudhodhan/nodeappserver:${BUILD_NUMBER}
                             """
                         }
                     }
