@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Code-Checkout') {
             steps {
-                git url: "https://github.com/Shudhoo/React-Login-Page.git", branch: "master"
+                git url: "https://github.com/Shudhoo/MyNodeApp.git", branch: "master"
             }
         }
 
