@@ -48,6 +48,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'github', variable: 'github')]) {
                     sh '''
+                        rm -r MyNodeApp-Manifests
                         git clone https://${github}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
                         cd ${GIT_REPO_NAME}
                         
