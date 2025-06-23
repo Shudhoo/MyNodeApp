@@ -13,7 +13,7 @@ pipeline {
         stage('Sonar-Qube-Code-Quality-Analysis') {
             steps {
                 withSonarQubeEnv("SonarQube") {
-                    sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=React-Login-Page -Dsonar.projectKey=React-Login-Page"
+                    sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=MyNodeApp -Dsonar.projectKey=MyNodeApp"
                 }
             }
         }
