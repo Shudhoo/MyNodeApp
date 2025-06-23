@@ -2,7 +2,7 @@ import React from "react";
 
 function Home() {
     return(
-        <h2> Successfully Made it to Home Page !!!!</h2>
+        <h2> Developed and Deployed 3-Tier Application Successfully !!!!</h2>
     )
 }
 
