@@ -42,7 +42,7 @@ pipeline {
         }
         stage('Update-k8s-Manifest-Repo') {
             environment {
-                GIT_REPO_NAME = "MyNodeApp"
+                GIT_REPO_NAME = "MyNodeApp-Manifests"
                 GIT_USER_NAME = "Shudhoo"
             }
             steps {
