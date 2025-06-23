@@ -8,7 +8,7 @@ function Home() {
     >
       <div className="card shadow-sm p-4 text-center">
         <h2 className="text-success">
-          Developed and Deployed 3-Tier Application Successfully !!!!
+          Developed and Deployed 3-Tier Application Successfully By Shudhodhan !!!!
         </h2>
       </div>
     </div>
