@@ -1,4 +1,5 @@
 #  CI/CD Pipeline with Jenkins | SonarQube | Trivy | Docker | ArgoCD
+#  Infrastructure with Terraform | Ansible
 
 I built, containerized, and deployed this application while learning full-stack development and deployment practices. This project reflects my hands-on experience with the **MERN stack**, Docker, CI/CD pipelines, and Kubernetes-based deployment. It helped me understand how to take an application from development to production using modern tools and workflows.
 
