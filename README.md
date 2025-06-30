@@ -6,7 +6,7 @@ I built, containerized, and deployed this application while learning full-stack 
 - CI/CD pipeline using Jenkins with SonarQube and Trivy integration
 - Auto-deployment to Kubernetes using ArgoCD (GitOps)
 ---
-
+![Alt text](Flow-Diagram.png)
 ## 📌 Features
 
 - ✅ Code Checkout from GitHub
